@@ -11,19 +11,27 @@ public class AnalyticsCounter {
 	private ICountOcurrences countOcurrences;
 	private ISymptomWriter writeSymptomDataToFile;
 
-	public void readSymptoms(){
+	private void readSymptoms(){
 		readSymptomDataFromFile = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		symptomsList = readSymptomDataFromFile.GetSymptoms();
 	}
 
-	public void countSymptoms(){
+	private void countSymptoms(){
 		countOcurrences = new CountSymptoms(symptomsList);
 		symptomsMap = countOcurrences.countSymptoms();
 	}
 
-	public void writeSymtomsToFile(){
+	private void writeSymtomsToFile(){
 		writeSymptomDataToFile = new WriteSymptomDataToFile(symptomsMap);
 		writeSymptomDataToFile.writeSymptoms();
 	}
+
+	public void analyticsCOuterStart(){
+		this.readSymptoms();
+		this.countSymptoms();
+		this.writeSymtomsToFile();
+
+	}
+
 
 }

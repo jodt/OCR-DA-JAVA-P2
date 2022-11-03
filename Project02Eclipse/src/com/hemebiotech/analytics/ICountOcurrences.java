@@ -9,7 +9,7 @@ import java.util.Map;
 public interface ICountOcurrences {
     /**
      *
-     * @return a map that contains the name of the symptom as a key and its number of occurrences in value
+     * @return a map that contains the name of the symptom as key and its number of occurrences in value
      */
 
     Map<String,Integer> countSymptoms();
