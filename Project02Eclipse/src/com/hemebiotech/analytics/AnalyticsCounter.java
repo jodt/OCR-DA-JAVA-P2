@@ -5,25 +5,26 @@ import java.util.Map;
 
 public class AnalyticsCounter {
 
-	public static void main(String args[]) throws Exception {
-		// Declare variables
-		List<String> symptomsList;
-		Map<String,Integer> symptomsMap;
-		ReadSymptomDataFromFile readSymptomDataFromFile;
-		ICountOcurrences countOcurrences;
-		WriteSymptomDataToFile writeSymptomDataToFile;
+	private List<String> symptomsList;
+	private Map<String,Integer> symptomsMap;
+	private ReadSymptomDataFromFile readSymptomDataFromFile;
+	private ICountOcurrences countOcurrences;
 
-		//Read symptoms from file
+	private WriteSymptomDataToFile writeSymptomDataToFile;
+
+	public void readSymptoms(){
 		readSymptomDataFromFile = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		symptomsList = readSymptomDataFromFile.GetSymptoms();
+	}
 
-		//Count symptoms occurrences
+	public void countSymptoms(){
 		countOcurrences = new CountSymptoms(symptomsList);
 		symptomsMap = countOcurrences.countSymptoms();
+	}
 
-		//enerate output
+	public void writeSymtomsToFile(){
 		writeSymptomDataToFile = new WriteSymptomDataToFile(symptomsMap);
 		writeSymptomDataToFile.writeSymptoms();
-
 	}
+
 }
