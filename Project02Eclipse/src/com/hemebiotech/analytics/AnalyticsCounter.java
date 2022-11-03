@@ -26,12 +26,10 @@ public class AnalyticsCounter {
 		writeSymptomDataToFile.writeSymptoms();
 	}
 
-	public void analyticsCOuterStart(){
+	public void analyticsCounterStart(){
 		this.readSymptoms();
 		this.countSymptoms();
 		this.writeSymtomsToFile();
 
 	}
-
-
 }
