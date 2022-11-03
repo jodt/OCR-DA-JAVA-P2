@@ -3,6 +3,11 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The Analyticscounter class allows to chain the functions of reading,
+ * counting and writing in an output file, symptoms coming from a source file
+ *
+ */
 public class AnalyticsCounter {
 
 	private List<String> symptomsList;
@@ -26,6 +31,9 @@ public class AnalyticsCounter {
 		writeSymptomDataToFile.writeSymptoms();
 	}
 
+	/**
+	 * Read, count and write to a file symptoms coming from a source file
+	 */
 	public void analyticsCounterStart(){
 		this.readSymptoms();
 		this.countSymptoms();

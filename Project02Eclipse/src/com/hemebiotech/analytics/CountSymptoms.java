@@ -14,10 +14,6 @@ public class CountSymptoms implements ICountOcurrences {
 
     @Override
     public Map<String, Integer> countSymptoms() {
-        /**
-         * @return a map that contains the name of the symptom in key and
-         * its number of occurrences by value in alphabetical order
-         */
         Map<String,Integer> symptomsOrderedMap = new TreeMap<>();
         for (String symptom : symptomsList){
             if (!symptomsOrderedMap.containsKey(symptom)){

@@ -12,11 +12,12 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
         this.symptomsMap = symptomsMap;
     }
 
+    /**
+     * Reads symptoms from a map and save them in "result.out" file
+     */
     @Override
     public void writeSymptoms() {
-        /**
-         * Reads symptoms from a map and save them in "result.out" file
-         */
+
         try (FileWriter writer = new FileWriter("result.out")) {
             for (String symptom : symptomsMap.keySet()) {
                 writer.write(symptom + "=" + symptomsMap.get(symptom) + "\n");

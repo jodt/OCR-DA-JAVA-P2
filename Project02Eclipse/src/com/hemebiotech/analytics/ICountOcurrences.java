@@ -3,14 +3,13 @@ package com.hemebiotech.analytics;
 import java.util.Map;
 
 /**
- * counts symptom occurrences from a source
+ * Anything that will count symptom occurrences from a source
  */
 
 public interface ICountOcurrences {
     /**
      *
-     * @return a map that contains the name of the symptom as key and its number of occurrences in value
+     * @return a map that contains the name of the symptom as key and its number of occurrences as value
      */
-
     Map<String,Integer> countSymptoms();
 }
