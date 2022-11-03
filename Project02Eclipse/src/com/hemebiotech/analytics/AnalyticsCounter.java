@@ -7,10 +7,9 @@ public class AnalyticsCounter {
 
 	private List<String> symptomsList;
 	private Map<String,Integer> symptomsMap;
-	private ReadSymptomDataFromFile readSymptomDataFromFile;
+	private ISymptomReader readSymptomDataFromFile;
 	private ICountOcurrences countOcurrences;
-
-	private WriteSymptomDataToFile writeSymptomDataToFile;
+	private ISymptomWriter writeSymptomDataToFile;
 
 	public void readSymptoms(){
 		readSymptomDataFromFile = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
