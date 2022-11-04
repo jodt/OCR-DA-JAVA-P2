@@ -27,7 +27,7 @@ public class AnalyticsCounter {
 	}
 
 	private void writeSymtomsToFile(){
-		writeSymptomDataToFile = new WriteSymptomDataToFile(symptomsMap);
+		writeSymptomDataToFile = new WriteSymptomDataToFile(symptomsMap, "result.out");
 		writeSymptomDataToFile.writeSymptoms();
 	}
 
