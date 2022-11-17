@@ -32,7 +32,7 @@ public class AnalyticsCounter {
 	}
 
 	/**
-	 * Read, count and write to a file symptoms coming from a source file
+	 * Read, count and write to a file symptoms coming from a source
 	 */
 	public void analyticsCounterStart(){
 		this.readSymptoms();

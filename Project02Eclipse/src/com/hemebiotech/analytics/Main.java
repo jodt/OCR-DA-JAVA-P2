@@ -1,3 +1,9 @@
+/**
+ *  This is the Main class
+ *
+ * @author Joel DUMORTIER
+ */
+
 package com.hemebiotech.analytics;
 
 public class Main {

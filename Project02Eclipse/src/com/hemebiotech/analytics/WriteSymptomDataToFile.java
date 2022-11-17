@@ -9,6 +9,12 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
     private Map<String, Integer> symptomsMap;
     private String filepath;
 
+    /**
+     *
+     * @param symptomsMap a dictionary that contains the symptom as key and its number of occurrences as value
+     * @param filepath the name of the output file in which the symptoms and their number of occurrences will be saved
+     */
+
     public WriteSymptomDataToFile(Map<String, Integer> symptomsMap, String filepath) {
         this.symptomsMap = symptomsMap;
         this.filepath = filepath;

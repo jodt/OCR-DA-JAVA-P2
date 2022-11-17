@@ -1,3 +1,9 @@
+/**
+ * Implement method to count symptoms.
+ *
+ * Returns a map with symptoms sorted alphabetically
+ */
+
 package com.hemebiotech.analytics;
 
 import java.util.List;
@@ -8,6 +14,10 @@ public class CountSymptoms implements ICountOcurrences {
 
     private List<String> symptomsList;
 
+    /**
+     *
+     * @param symptomsList list of symptoms that may contain many duplications
+     */
     public CountSymptoms(List<String> symptomsList) {
         this.symptomsList = symptomsList;
     }
