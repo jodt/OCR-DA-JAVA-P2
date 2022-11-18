@@ -8,6 +8,7 @@ import java.util.Map;
 
 public interface ICountOcurrences {
     /**
+     * If no data is available, return an empty map
      *
      * @return a map that contains the name of the symptom as key and its number of occurrences as value
      */
