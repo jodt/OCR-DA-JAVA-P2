@@ -32,9 +32,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					result.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println("There is an error");
 			}
 		}
 		return result;

@@ -7,17 +7,26 @@ import java.util.Map;
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
     private Map<String, Integer> symptomsMap;
+    private String filepath;
 
-    public WriteSymptomDataToFile(Map<String, Integer> symptomsMap) {
+    /**
+     *
+     * @param symptomsMap a dictionary that contains the symptom as key and its number of occurrences as value
+     * @param filepath the name of the output file in which the symptoms and their number of occurrences will be saved
+     */
+
+    public WriteSymptomDataToFile(Map<String, Integer> symptomsMap, String filepath) {
         this.symptomsMap = symptomsMap;
+        this.filepath = filepath;
     }
 
+    /**
+     * Reads symptoms from a map and save them in a file
+     */
     @Override
     public void writeSymptoms() {
-        /**
-         * Reads symptoms from a map and save them in "result.out" file
-         */
-        try (FileWriter writer = new FileWriter("result.out")) {
+
+        try (FileWriter writer = new FileWriter(filepath)) {
             for (String symptom : symptomsMap.keySet()) {
                 writer.write(symptom + "=" + symptomsMap.get(symptom) + "\n");
             }

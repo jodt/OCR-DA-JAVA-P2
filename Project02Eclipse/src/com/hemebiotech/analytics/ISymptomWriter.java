@@ -1,11 +1,11 @@
 package com.hemebiotech.analytics;
 
-import java.util.Map;
-
-
+/**
+ * Write symptoms data from a source to a file
+ *
+ * Create the file if not exits or overwrite it.
+ */
 public interface ISymptomWriter {
-    /**
-     * Write symptoms data from a source to a file
-     */
+
     void writeSymptoms ();
 }

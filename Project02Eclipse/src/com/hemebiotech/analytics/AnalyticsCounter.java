@@ -1,40 +1,56 @@
+/**
+ * The Analyticscounter class allows to chain the functions of reading,
+ * counting and writing in an output file, symptoms coming from a source file
+ *
+ */
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.List;
+import java.util.Map;
 
+/**
+ * Represents an analytics counter
+ * @author Joel Dumortier
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
-		String line = reader.readLine();
 
-		while (line != null) {
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headacheCount++;
-				System.out.println("number of headaches: " + headacheCount);
-			}
-			else if (line.equals("rash")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	private List<String> symptomsList;
+	private Map<String,Integer> symptomsMap;
+	private ISymptomReader readSymptomDataFromFile;
+	private ICountOcurrences countOcurrences;
+	private ISymptomWriter writeSymptomDataToFile;
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+
+	/**
+	 * Read, count and write to a file symptoms coming from a source
+	 */
+	public void analyticsCounterStart(){
+		this.readSymptoms();
+		this.countSymptoms();
+		this.writeSymtomsToFile();
+	}
+
+	/**
+	 * Read symptoms from a file called symptoms.txt and put them into a list.
+	 */
+	private void readSymptoms(){
+		readSymptomDataFromFile = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
+		symptomsList = readSymptomDataFromFile.GetSymptoms();
+	}
+
+	/**
+	 * Count the symptoms from a list and create a map, with each symptom and its number of occurrences
+	 */
+	private void countSymptoms(){
+		countOcurrences = new CountSymptoms(symptomsList);
+		symptomsMap = countOcurrences.countSymptoms();
+	}
+
+	/**
+	 * Write each symptom and its occurrence count to a file called result.out
+	 */
+	private void writeSymtomsToFile(){
+		writeSymptomDataToFile = new WriteSymptomDataToFile(symptomsMap, "result.out");
+		writeSymptomDataToFile.writeSymptoms();
 	}
 }
