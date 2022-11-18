@@ -29,12 +29,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			try (BufferedReader reader = new BufferedReader (new FileReader(filepath))) {
 				String line = reader.readLine();
 				while (line != null) {
-					System.out.println("Symptom = " + line);
 					result.add(line);
 					line = reader.readLine();
 				}
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println("There is an error");
 			}
 		}
 		return result;
