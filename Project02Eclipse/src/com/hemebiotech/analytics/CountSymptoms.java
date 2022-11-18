@@ -15,7 +15,7 @@ public class CountSymptoms implements ICountOcurrences {
     private List<String> symptomsList;
 
     /**
-     *
+     * Method constructor
      * @param symptomsList list of symptoms that may contain many duplications
      */
     public CountSymptoms(List<String> symptomsList) {
