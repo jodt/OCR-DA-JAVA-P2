@@ -16,6 +16,17 @@ public class AnalyticsCounter {
 	private ICountOcurrences countOcurrences;
 	private ISymptomWriter writeSymptomDataToFile;
 
+
+	/**
+	 * Read, count and write to a file symptoms coming from a source
+	 */
+	public void analyticsCounterStart(){
+		this.readSymptoms();
+		this.countSymptoms();
+		this.writeSymtomsToFile();
+
+	}
+
 	private void readSymptoms(){
 		readSymptomDataFromFile = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		symptomsList = readSymptomDataFromFile.GetSymptoms();
@@ -29,15 +40,5 @@ public class AnalyticsCounter {
 	private void writeSymtomsToFile(){
 		writeSymptomDataToFile = new WriteSymptomDataToFile(symptomsMap, "result.out");
 		writeSymptomDataToFile.writeSymptoms();
-	}
-
-	/**
-	 * Read, count and write to a file symptoms coming from a source
-	 */
-	public void analyticsCounterStart(){
-		this.readSymptoms();
-		this.countSymptoms();
-		this.writeSymtomsToFile();
-
 	}
 }
