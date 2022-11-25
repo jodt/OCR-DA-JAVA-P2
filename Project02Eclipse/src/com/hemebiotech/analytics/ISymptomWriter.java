@@ -6,6 +6,8 @@ package com.hemebiotech.analytics;
  * Create the file if not exits or overwrite it.
  */
 public interface ISymptomWriter {
-
+    /**
+     * Write the result in output system (file, BDD.....)
+     */
     void writeSymptoms ();
 }
